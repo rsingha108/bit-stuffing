@@ -1,6 +1,6 @@
 # bit-stuffing
 
-main.ml : Extracted Verified OCaml Code for Bit Stuffing
+main.ml : Extracted Verified OCaml Code for Bit Stuffing. Performance measurement.
 
 test.py : Unverified python implementation
 
