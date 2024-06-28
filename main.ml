@@ -237,14 +237,41 @@ let rec bools_to_str b  =
 (* let a = Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))));; *)
 
 (* 16 bit data below *)
-let a = Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))))));;
+(* let a = Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))))));; *)
+
+(* ============================ Bool GENERATOR ================================= *)
+
+(* Function to convert an OCaml bool to custom bool *)
+let ocaml_bool_to_custom_bool = function
+  | true -> True
+  | false -> False
+
+(* Function to generate a random bool *)
+let random_bool () =
+  Random.bool () |> ocaml_bool_to_custom_bool
+
+(* Function to generate a random bool list of a given length *)
+let rec random_bool_list length =
+  if length <= 0 then Nil
+  else Cons(random_bool (), random_bool_list (length - 1))
+
+(* Initialize the random number generator *)
+let () = Random.self_init ()
+
+(* Generate a random bool list of length 12000 *)
+let bool_list_12000 = random_bool_list 12000
+
+(* ============================================================= *)
+
+let a = bool_list_12000;;
+
 let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(False, Nil)))));;
 let k = Cons(True,Cons(True, Nil)) ;;
 let s = False;;
 
 let t1 = Sys.time();;
 
-for i = 1 to 1000000 do
+for i = 1 to 1000 do
   let b = stuff a k s in
   let b1 = add_flags b f in
   let b2 = rem_flags b1 f in
@@ -256,6 +283,6 @@ done
 let t2 = Sys.time();;
 let t = t2 -. t1 ;;
 let b = stuff a k s;;
-Printf.eprintf "a =  %s\n"  (bools_to_str a);;
-Printf.eprintf "b =  %s\n"  (bools_to_str b);;
+(* Printf.eprintf "a =  %s\n"  (bools_to_str a);;
+Printf.eprintf "b =  %s\n"  (bools_to_str b);; *)
 Printf.printf "time taken =  %f\n"  t;;
