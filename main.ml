@@ -259,11 +259,11 @@ let rec random_bool_list length =
 let () = Random.self_init ()
 
 (* Generate a random bool list of length 12000 *)
-let bool_list_12000 = random_bool_list 12000
+let bool_list_512 = random_bool_list 512
 
 (* ============================================================= *)
 
-let a = bool_list_12000;;
+let a = bool_list_512;;
 
 let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(False, Nil)))));;
 let k = Cons(True,Cons(True, Nil)) ;;
