@@ -1,0 +1,5 @@
+1. Open OCaml64 in Desktop
+2. go to the ocaml_test folder
+3. run the command "code ." [it will open vscode]
+4. compile the code using : ocamlc -o test test.ml
+5. then run ./test
