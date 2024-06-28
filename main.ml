@@ -234,7 +234,10 @@ let rec bools_to_str b  =
   | Nil -> ""
   | Cons (x, l') -> Printf.sprintf "%s%s" (if x==True then "T" else "F") (bools_to_str l');;
   
-let a = Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))));;
+(* let a = Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))));; *)
+
+(* 16 bit data below *)
+let a = Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))))));;
 let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(False, Nil)))));;
 let k = Cons(True,Cons(True, Nil)) ;;
 let s = False;;
