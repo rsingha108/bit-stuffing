@@ -4,6 +4,8 @@ main.ml : Extracted Verified OCaml Code for Bit Stuffing. Performance measuremen
 
 test.py : Unverified python implementation
 
+bitstuff.cpp : Unverified C implementation
+
 verified_framing.v : The Coq Proof
 
 workex.ml : Generating all working examples
