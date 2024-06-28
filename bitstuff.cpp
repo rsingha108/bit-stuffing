@@ -84,7 +84,7 @@ int main(){
     //int arr[] = {1,0,0,1,0};
     // bool arr[] = {true,false,false,true,false};
     // for (auto i : arr) {a.push_back(i);}
-    a = generate_random_bits(64);
+    a = generate_random_bits(12000);
 
 
     vector<bool> k; 
@@ -105,7 +105,7 @@ int main(){
     vector<bool> b3;
 
     auto start = high_resolution_clock::now();
-    for (int i=0;i<1000000;i++){
+    for (int i=0;i<1000;i++){
         // b = stuff(a,k,s);
         // b1 = add_flags(b,f); 
         // b2 = rem_flags(b1,f); 
@@ -118,12 +118,12 @@ int main(){
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "Time Taken : " << duration.count() << endl;
 
-    cout << "a : "; print(a);
-    cout << "k : "; print(k);
-    cout << "s : " << s << endl;
-    cout << "f : "; print(f);
-    cout << "b : "; print(b);
-    cout << "b1 : "; print(b1);
+    // cout << "a : "; print(a);
+    // cout << "k : "; print(k);
+    // cout << "s : " << s << endl;
+    // cout << "f : "; print(f);
+    // cout << "b : "; print(b);
+    // cout << "b1 : "; print(b1);
     // cout << "b2 : "; print(b2);
     // cout << "b3 : "; print(b3);
 }
