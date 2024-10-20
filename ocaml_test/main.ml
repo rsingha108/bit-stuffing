@@ -234,12 +234,7 @@ let rec bools_to_str b  =
   | Nil -> ""
   | Cons (x, l') -> Printf.sprintf "%s%s" (if x==True then "T" else "F") (bools_to_str l');;
   
-(* let a = Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))));; *)
-
-(* 16 bit data below *)
-(* let a = Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(True,Cons(False,Cons(True,Cons(True,Cons(True,Cons(False,Cons(False,Cons(True,Nil))))))))))))))));; *)
-
-(* ============================ Bool GENERATOR ================================= *)
+(* ============================ Random Bool Generator ================================= *)
 
 (* Function to convert an OCaml bool to custom bool *)
 let ocaml_bool_to_custom_bool = function
@@ -258,10 +253,10 @@ let rec random_bool_list length =
 (* Initialize the random number generator *)
 let () = Random.self_init ()
 
-(* ============================================================= *)
+(* ========================== Measure Performance ========================== *)
 
 let n_iterations = 1000;;
-let dataSize = 12000;;
+let dataSize = 512;;
 
 (* Generate a random bool list of length 12000 *)
 let bool_list = random_bool_list dataSize;;
@@ -277,14 +272,11 @@ for i = 1 to n_iterations do
   let b = stuff a k s in
   let b1 = add_flags b f in
   let b2 = rem_flags b1 f in
-  destuff b2 k 
-  (* let b = stuff a k s in *)
-  (* Printf.eprintf "b =  %s\n"  (bools_to_str b) *)
+  destuff b2 k
 done
 
 let t2 = Sys.time();;
-let t = t2 -. t1 ;;
+let t = (t2 -. t1) *. 1000.0 ;;
 let b = stuff a k s;;
-(* Printf.eprintf "a =  %s\n"  (bools_to_str a);;
-Printf.eprintf "b =  %s\n"  (bools_to_str b);; *)
-Printf.printf "time taken in seconds =  %f\n"  t;;
+
+Printf.printf "time taken in milliseconds =  %f\n"  t;;
