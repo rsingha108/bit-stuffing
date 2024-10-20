@@ -265,8 +265,8 @@ let bool_list_512 = random_bool_list 512
 
 let a = bool_list_512;;
 
-let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(False, Nil)))));;
-let k = Cons(True,Cons(True, Nil)) ;;
+let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Cons(False, Nil))))))));;
+let k = Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Nil)))));;
 let s = False;;
 
 let t1 = Sys.time();;
