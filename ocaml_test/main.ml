@@ -258,12 +258,14 @@ let rec random_bool_list length =
 (* Initialize the random number generator *)
 let () = Random.self_init ()
 
-(* Generate a random bool list of length 12000 *)
-let bool_list_512 = random_bool_list 512
-
 (* ============================================================= *)
 
-let a = bool_list_512;;
+let n_iterations = 1000;;
+let dataSize = 12000;;
+
+(* Generate a random bool list of length 12000 *)
+let bool_list = random_bool_list dataSize;;
+let a = bool_list;;
 
 let f  = Cons(False,Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Cons(False, Nil))))))));;
 let k = Cons(True,Cons(True,Cons(True,Cons(True,Cons(True,Nil)))));;
@@ -271,7 +273,7 @@ let s = False;;
 
 let t1 = Sys.time();;
 
-for i = 1 to 1000 do
+for i = 1 to n_iterations do
   let b = stuff a k s in
   let b1 = add_flags b f in
   let b2 = rem_flags b1 f in
