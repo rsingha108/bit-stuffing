@@ -285,4 +285,4 @@ let t = t2 -. t1 ;;
 let b = stuff a k s;;
 (* Printf.eprintf "a =  %s\n"  (bools_to_str a);;
 Printf.eprintf "b =  %s\n"  (bools_to_str b);; *)
-Printf.printf "time taken =  %f\n"  t;;
+Printf.printf "time taken in seconds =  %f\n"  t;;
